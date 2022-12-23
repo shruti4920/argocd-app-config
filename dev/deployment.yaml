@@ -18,7 +18,7 @@ spec:
     spec:
       containers:
         - name: java-sre-monitor
-          image: 'docker.io/shrutichittora49/springboot-app:v2'
+          image: 'image-registry.openshift-image-registry.svc:5000/shruti-poc-devops/springboot-app:latest'
           ports:
             - containerPort: 8080
               protocol: TCP

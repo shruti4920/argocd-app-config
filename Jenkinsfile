@@ -10,7 +10,7 @@ pipeline {
         
         stage("update git"){
         steps{
-        sh "cat deployment.yaml"
+        sh "cat .dev/deployment.yaml"
         }
         }
         }

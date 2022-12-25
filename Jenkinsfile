@@ -14,6 +14,9 @@ pipeline {
         stage("update git"){
         steps{
             withCredentials([usernamePassword(credentialsId: 'github', passwordVariable: 'pass', usernameVariable: 'user')]) {
+                  script {
+                        env.encodedPass=URLEncoder.encode(pass, "UTF-8")
+                    }
     // some block
 
         sh "git config user.email shruti_chittora@persistent.com"
@@ -24,7 +27,7 @@ pipeline {
         sh "cat ./dev/deployment.yaml"
         sh "git add ."
         sh "git commit -m 'done by jenkins job updatemanifest' "
-         sh "git remote set-url https://$user:$pass@github.com/$user/argocd-app-config.git"
+//      sh "git remote set-url https://$user:$pass@github.com/$user/argocd-app-config.git"
         sh  'git push https://$user:$pass@github.com/$user/argocd-app-config.git HEAD:main'
             }
         }

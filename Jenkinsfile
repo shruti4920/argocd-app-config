@@ -24,6 +24,7 @@ pipeline {
         sh "cat ./dev/deployment.yaml"
         sh "git add ."
         sh "git commit -m 'done by jenkins job updatemanifest' "
+         sh "git remote add origin https://$user:$pass@github.com/$user/argocd-app-config.git
         sh  'git push https://$user:$pass@github.com/$user/argocd-app-config.git HEAD:main'
             }
         }

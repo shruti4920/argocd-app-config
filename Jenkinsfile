@@ -4,8 +4,11 @@ pipeline {
     stages {
         stage("Checkout") {
             steps {
-            checkout([$class: 'GitSCM', branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[credentialsId: 'github',url: 'https://github.com/shruti4920/argocd-app-config.git']]])
+            //checkout([$class: 'GitSCM', branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[credentialsId: 'github',url: 'https://github.com/shruti4920/argocd-app-config.git']]])
+               checkout scm
         }
+            
+            
     }
         
         stage("update git"){
@@ -21,7 +24,7 @@ pipeline {
         sh "cat ./dev/deployment.yaml"
         sh "git add ."
         sh "git commit -m 'done by jenkins job updatemanifest' "
-        sh  'git push https://github.com/shruti4920/argocd-app-config.git HEAD:main'
+        sh  'git push https://$user:$pass@github.com/$user/argocd-app-config.git HEAD:main'
             }
         }
         }

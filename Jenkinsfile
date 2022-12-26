@@ -19,7 +19,7 @@ pipeline {
                     }
     // some block
 
-        sh "git config user.email shruti_chittora@persistent.com"
+        sh "git config user.email shrutichittora49@gmail.com"
         sh "git config user.name Shruti"
         sh "cat ./dev/deployment.yaml"
         echo "${DOCKERTAG}"

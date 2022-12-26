@@ -17,7 +17,7 @@ pipeline {
                   script {
                         env.encodedPass=URLEncoder.encode(pass, "UTF-8")
                     }
-    // some block
+    
 
         sh "git config user.email shrutichittora49@gmail.com"
         sh "git config user.name Shruti"
